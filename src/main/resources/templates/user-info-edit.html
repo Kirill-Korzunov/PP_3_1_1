@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:method="POST" th:action="@{/updateUserPost}" th:object="${user}">
+        <input type="hidden" th:field="*{id}"/>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Generic Error</p>
+        Имя <input type="text" th:field="*{name}"/>
+        <br><br>
+        <p th:if="${#fields.hasErrors('surName')}" th:errors="*{surName}">Generic Error</p>
+        Фамилия <input type="text" th:field="*{surName}"/>
+        <br><br>
+        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Generic Error</p>
+        Возраст <input type="text" th:field="*{age}"/>
+        <br><br>
+        <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Generic Error</p>
+        Город <input type="text" th:field="*{city}"/>
+        <br><br>
+        <input type="submit" value="Изменить">
+    </form>
+</body>
+</html>
